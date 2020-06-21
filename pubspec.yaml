@@ -1,6 +1,6 @@
 name: cool_alert
 description: A Flutter package to display animated alert dialogs
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/emrade/flutter_cool_alert.git
 
 environment:
