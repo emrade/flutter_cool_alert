@@ -27,6 +27,6 @@ class CoolAlertOptions {
     this.cancelBtnText,
     this.confirmBtnColor,
     this.showCancelBtn,
-    this.borderRadius
+    this.borderRadius,
   });
 }

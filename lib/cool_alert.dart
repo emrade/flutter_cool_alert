@@ -44,7 +44,7 @@ class CoolAlert {
       cancelBtnText: cancelBtnText,
       confirmBtnColor: confirmBtnColor,
       showCancelBtn: showCancelBtn,
-      borderRadius: borderRadius
+      borderRadius: borderRadius,
     );
 
     Widget child = AlertDialog(
