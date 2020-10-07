@@ -12,21 +12,26 @@ class CoolAlertOptions {
   String confirmBtnText;
   String cancelBtnText;
   Color confirmBtnColor;
+  Color backgroundColor;
   bool showCancelBtn;
   double borderRadius;
+  String customAnimationPath;
+  String customAnimationName;
 
-  CoolAlertOptions({
-    this.title,
-    this.text,
-    @required this.type,
-    this.animType,
-    this.barrierDismissible,
-    this.onConfirmBtnTap,
-    this.onCancelBtnTap,
-    this.confirmBtnText,
-    this.cancelBtnText,
-    this.confirmBtnColor,
-    this.showCancelBtn,
-    this.borderRadius,
-  });
+  CoolAlertOptions(
+      {this.title,
+      this.text,
+      @required this.type,
+      this.animType,
+      this.barrierDismissible,
+      this.onConfirmBtnTap,
+      this.onCancelBtnTap,
+      this.confirmBtnText,
+      this.cancelBtnText,
+      this.confirmBtnColor,
+      this.backgroundColor,
+      this.showCancelBtn,
+      this.borderRadius,
+      this.customAnimationPath,
+      this.customAnimationName});
 }

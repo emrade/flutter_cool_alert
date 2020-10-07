@@ -17,21 +17,27 @@ enum CoolAlertAnimType {
 
 /// CoolAlert.
 class CoolAlert {
-  static Future show({
-    @required BuildContext context,
-    String title,
-    String text,
-    @required CoolAlertType type,
-    CoolAlertAnimType animType = CoolAlertAnimType.scale,
-    bool barrierDismissible = true,
-    VoidCallback onConfirmBtnTap,
-    VoidCallback onCancelBtnTap,
-    String confirmBtnText = "OK",
-    String cancelBtnText = "CANCEL",
-    Color confirmBtnColor = const Color(0xFF3085D6),
-    bool showCancelBtn = false,
-    double borderRadius = 10.0,
-  }) {
+  static Future show(
+      {@required BuildContext context,
+      String title,
+      String text,
+      @required CoolAlertType type,
+      CoolAlertAnimType animType = CoolAlertAnimType.scale,
+      bool barrierDismissible = true,
+      VoidCallback onConfirmBtnTap,
+      VoidCallback onCancelBtnTap,
+      String confirmBtnText = "OK",
+      String cancelBtnText = "CANCEL",
+      Color confirmBtnColor = const Color(0xFF3085D6),
+      Color backgroundColor = const Color(0xFF515C6F),
+      bool showCancelBtn = false,
+      double borderRadius = 10.0,
+
+      /// Provide a custom Flare animation file path
+      String customAnimationPath,
+
+      /// The name of the animation to play.
+      String customAnimationName}) {
     CoolAlertOptions options = new CoolAlertOptions(
       title: title,
       text: text,
@@ -43,8 +49,11 @@ class CoolAlert {
       confirmBtnText: confirmBtnText,
       cancelBtnText: cancelBtnText,
       confirmBtnColor: confirmBtnColor,
+      backgroundColor: backgroundColor,
       showCancelBtn: showCancelBtn,
       borderRadius: borderRadius,
+      customAnimationPath: customAnimationPath,
+      customAnimationName: customAnimationName,
     );
 
     Widget child = AlertDialog(

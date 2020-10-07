@@ -34,10 +34,13 @@ title| String | Set a custom title for dialog                                   
 | confirmBtnText | String             | Text of confirm button                                                                                                                                       |                'Ok'                 |                 |
 | confirmBtnTap| Function           | Function that handle click of confirm button                                                                       |                () => Navigator.pop(context)|
 | confirmBtnColor| Color              | Color of confirm Button                                                                                                                                       |          Theme.of(context).primaryColor          |                |
+| backgroundColor| Color              | Background color                                                                                                                                       |          Color(0xFF515C6F)          |                |
 | cancelBtnText| String             | Text of cancel button                                                                                                                                       |              'Cancel'               |
 | cancelBtnTap| Function           | Function that handle click of cancel button                                                                     |                () => Navigator.pop(context) 
 | barrierDismissible| bool               | Dissmiss dialog on touch overlay                                                                                                                              |                true                 
 | animType              | CoolAlertAnimType| Type of dialogue enter animation                                                                                                                              |           CoolAlertAnimType.scale|
+| customAnimationPath              | String| A path to a custom .flr animation file                                                                                                                             |           Based on the CoolAlertType selected|
+| customAnimationName              | String| A name of the animation to play                                                                                                                             |           play|
 
 
 

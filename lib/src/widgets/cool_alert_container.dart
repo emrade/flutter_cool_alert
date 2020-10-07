@@ -70,10 +70,14 @@ class CoolAlertContainer extends StatelessWidget {
         default:
           anim = AppAnim.info;
       }
+      if (options.customAnimationPath != null) {
+        anim = options.customAnimationPath;
+      }
+
       return Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Color(0xFF515C6F),
+          color: options.backgroundColor,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(options.borderRadius),
             topRight: Radius.circular(options.borderRadius),
@@ -84,7 +88,9 @@ class CoolAlertContainer extends StatelessWidget {
           width: 150,
           child: FlareActor(
             anim,
-            animation: "play",
+            animation: options.customAnimationName != null
+                ? options.customAnimationName
+                : "play",
           ),
         ),
       );
