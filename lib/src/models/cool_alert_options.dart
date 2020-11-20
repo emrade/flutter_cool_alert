@@ -12,8 +12,14 @@ class CoolAlertOptions {
   String confirmBtnText;
   String cancelBtnText;
   Color confirmBtnColor;
+  TextStyle confirmBtnTextStyle;
+  TextStyle cancelBtnTextStyle;
   bool showCancelBtn;
   double borderRadius;
+  Color backgroundColor;
+  String flareAsset;
+  String flareAnimationName;
+  String lottieAsset;
 
   CoolAlertOptions({
     this.title,
@@ -26,7 +32,13 @@ class CoolAlertOptions {
     this.confirmBtnText,
     this.cancelBtnText,
     this.confirmBtnColor,
+    this.confirmBtnTextStyle,
+    this.cancelBtnTextStyle,
     this.showCancelBtn,
     this.borderRadius,
+    this.backgroundColor,
+    this.flareAsset,
+    this.flareAnimationName,
+    this.lottieAsset,
   });
 }

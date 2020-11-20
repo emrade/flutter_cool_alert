@@ -26,11 +26,17 @@ class CoolAlert {
     bool barrierDismissible = true,
     VoidCallback onConfirmBtnTap,
     VoidCallback onCancelBtnTap,
-    String confirmBtnText = "OK",
-    String cancelBtnText = "CANCEL",
+    String confirmBtnText = "Ok",
+    String cancelBtnText = "Cancel",
     Color confirmBtnColor = const Color(0xFF3085D6),
+    TextStyle confirmBtnTextStyle,
+    TextStyle cancelBtnTextStyle,
     bool showCancelBtn = false,
     double borderRadius = 10.0,
+    Color backgroundColor = const Color(0xFF515C6F),
+    String flareAsset,
+    String flareAnimationName = "play",
+    String lottieAsset,
   }) {
     CoolAlertOptions options = new CoolAlertOptions(
       title: title,
@@ -43,8 +49,14 @@ class CoolAlert {
       confirmBtnText: confirmBtnText,
       cancelBtnText: cancelBtnText,
       confirmBtnColor: confirmBtnColor,
+      confirmBtnTextStyle: confirmBtnTextStyle,
+      cancelBtnTextStyle: cancelBtnTextStyle,
       showCancelBtn: showCancelBtn,
       borderRadius: borderRadius,
+      backgroundColor: backgroundColor,
+      flareAsset: flareAsset,
+      flareAnimationName: flareAnimationName,
+      lottieAsset: lottieAsset
     );
 
     Widget child = AlertDialog(

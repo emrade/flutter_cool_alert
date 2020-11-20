@@ -72,11 +72,7 @@ class CoolAlertButtons extends StatelessWidget {
   }) {
     final _btnText = Text(
       text,
-      style: TextStyle(
-        color: isOkayBtn ? Colors.white : Colors.grey,
-        fontWeight: FontWeight.w600,
-        fontSize: 18.0,
-      ),
+      style: _defaultTextStyle(isOkayBtn),
     );
 
     final okayBtn = MaterialButton(
@@ -102,5 +98,19 @@ class CoolAlertButtons extends StatelessWidget {
     );
 
     return isOkayBtn ? okayBtn : cancelBtn;
+  }
+
+  TextStyle _defaultTextStyle(bool isOkayBtn) {
+    final textStyle = TextStyle(
+      color: isOkayBtn ? Colors.white : Colors.grey,
+      fontWeight: FontWeight.w600,
+      fontSize: 18.0,
+    );
+
+    if (isOkayBtn) {
+      return options.confirmBtnTextStyle ?? textStyle;
+    } else {
+      return options.cancelBtnTextStyle ?? textStyle;
+    }
   }
 }

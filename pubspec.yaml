@@ -1,5 +1,6 @@
 name: cool_alert
-description: A Flutter package to display animated alert dialogs such as success, error, warning, confirm or even a loading dialog.
+description: A Flutter package to display animated alert dialogs such as
+  success, error, warning, confirm or even a loading dialog.
 version: 1.0.1
 homepage: https://github.com/emrade/flutter_cool_alert.git
 
@@ -10,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flare_flutter: ^2.0.3
+  lottie: ^0.7.0+1
   vector_math: ^2.0.8
 
 dev_dependencies:
@@ -18,13 +20,11 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
   # To add assets to your package, add an assets section, like this:
   assets:
     - assets/flare/
-  #
   # For details regarding assets in packages, see
   # https://flutter.dev/assets-and-images/#from-packages
   #

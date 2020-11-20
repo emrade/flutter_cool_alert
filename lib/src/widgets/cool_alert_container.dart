@@ -4,6 +4,7 @@ import 'package:cool_alert/src/models/cool_alert_options.dart';
 import 'package:cool_alert/src/widgets/cool_alert_buttons.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class CoolAlertContainer extends StatelessWidget {
   final CoolAlertOptions options;
@@ -70,10 +71,14 @@ class CoolAlertContainer extends StatelessWidget {
         default:
           anim = AppAnim.info;
       }
+
+      if(options.flareAsset != null){
+        anim = options.flareAsset;
+      }
       return Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Color(0xFF515C6F),
+          color: options.backgroundColor,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(options.borderRadius),
             topRight: Radius.circular(options.borderRadius),
@@ -82,10 +87,10 @@ class CoolAlertContainer extends StatelessWidget {
         child: Container(
           height: 150,
           width: 150,
-          child: FlareActor(
+          child: options.lottieAsset == null ? FlareActor(
             anim,
-            animation: "play",
-          ),
+            animation: options.flareAnimationName,
+          ) : Lottie.asset(options.lottieAsset),
         ),
       );
     }
@@ -98,10 +103,10 @@ class CoolAlertContainer extends StatelessWidget {
         child: Container(
           height: 100,
           width: 100,
-          child: FlareActor(
+          child: options.lottieAsset == null ? FlareActor(
             AppAnim.loading,
-            animation: "play",
-          ),
+            animation: options.flareAnimationName,
+          ) : Lottie.asset(options.lottieAsset),
         ),
       );
     } else {
