@@ -43,7 +43,7 @@ title| String | Set a custom title for dialog                                   
 | cancelBtnTextStyle              | TextStyle | Cancel button text theme                                                                                                                             |           TextStyle(color: Colors.grey, fontWeight:FontWeight.w600,fontSize: 18.0)|
 | flareAsset              | String | Custom flare asset                                                                                                                             |           "animation.flr" |
 | flareAnimationName              | String | The name of the flare animation to play                                                                                                                             |           "play" |
-| lottieAsset              | String | Custome lottie asset                                                                                                                             |           "animation.json" |
+| lottieAsset              | String | Custom lottie asset                                                                                                                             |           "animation.json" |
 
 
 
