@@ -1,3 +1,6 @@
+## [1.0.2] - 24/06/2020
+* Added new customization options
+
 ## [1.0.1] - 24/06/2020
 * Updated documentation
 

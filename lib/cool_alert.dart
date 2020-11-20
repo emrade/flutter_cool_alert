@@ -56,7 +56,7 @@ class CoolAlert {
       backgroundColor: backgroundColor,
       flareAsset: flareAsset,
       flareAnimationName: flareAnimationName,
-      lottieAsset: lottieAsset
+      lottieAsset: lottieAsset,
     );
 
     Widget child = AlertDialog(

@@ -38,6 +38,14 @@ title| String | Set a custom title for dialog                                   
 | cancelBtnTap| Function           | Function that handle click of cancel button                                                                     |                () => Navigator.pop(context) 
 | barrierDismissible| bool               | Dissmiss dialog on touch overlay                                                                                                                              |                true                 
 | animType              | CoolAlertAnimType| Type of dialogue enter animation                                                                                                                              |           CoolAlertAnimType.scale|
+| backgroundColor              | Color| Background color of the animation                                                                                                                              |           Color(0xFF515C6F)|
+| confirmBtnTextStyle              | TextStyle | Confirm button text theme                                                                                                                              |           TextStyle(color: Colors.white, fontWeight:FontWeight.w600,fontSize: 18.0)|
+| cancelBtnTextStyle              | TextStyle | Cancel button text theme                                                                                                                             |           TextStyle(color: Colors.grey, fontWeight:FontWeight.w600,fontSize: 18.0)|
+| flareAsset              | String | Custom flare asset                                                                                                                             |           "animation.flr" |
+| flareAnimationName              | String | The name of the flare animation to play                                                                                                                             |           "play" |
+| lottieAsset              | String | Custome lottie asset                                                                                                                             |           "animation.json" |
+
+
 
 
 
