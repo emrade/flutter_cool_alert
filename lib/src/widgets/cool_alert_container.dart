@@ -72,7 +72,7 @@ class CoolAlertContainer extends StatelessWidget {
           anim = AppAnim.info;
       }
 
-      if(options.flareAsset != null){
+      if (options.flareAsset != null) {
         anim = options.flareAsset;
       }
       return Container(
@@ -87,10 +87,12 @@ class CoolAlertContainer extends StatelessWidget {
         child: Container(
           height: 150,
           width: 150,
-          child: options.lottieAsset == null ? FlareActor(
-            anim,
-            animation: options.flareAnimationName,
-          ) : Lottie.asset(options.lottieAsset),
+          child: options.lottieAsset == null
+              ? FlareActor(
+                  anim,
+                  animation: options.flareAnimationName,
+                )
+              : Lottie.asset(options.lottieAsset),
         ),
       );
     }
@@ -103,10 +105,12 @@ class CoolAlertContainer extends StatelessWidget {
         child: Container(
           height: 100,
           width: 100,
-          child: options.lottieAsset == null ? FlareActor(
-            AppAnim.loading,
-            animation: options.flareAnimationName,
-          ) : Lottie.asset(options.lottieAsset),
+          child: options.lottieAsset == null
+              ? FlareActor(
+                  AppAnim.loading,
+                  animation: options.flareAnimationName,
+                )
+              : Lottie.asset(options.lottieAsset),
         ),
       );
     } else {

@@ -18,8 +18,13 @@ enum CoolAlertAnimType {
 /// CoolAlert.
 class CoolAlert {
   static Future show({
+    /// BuildContext
     @required BuildContext context,
+
+    /// Title of the dialog
     String title,
+
+    /// Text of the dialog
     String text,
     @required CoolAlertType type,
     CoolAlertAnimType animType = CoolAlertAnimType.scale,
