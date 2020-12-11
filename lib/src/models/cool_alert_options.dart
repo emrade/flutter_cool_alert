@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 class CoolAlertOptions {
   String title;
   String text;
+  Widget widget;
   CoolAlertType type;
   CoolAlertAnimType animType;
   bool barrierDismissible = false;
@@ -24,6 +25,7 @@ class CoolAlertOptions {
   CoolAlertOptions({
     this.title,
     this.text,
+    this.widget,
     @required this.type,
     this.animType,
     this.barrierDismissible,
