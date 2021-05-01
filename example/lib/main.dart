@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -51,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
           type: CoolAlertType.error,
           title: 'Oops...',
           text: 'Sorry, something went wrong',
+          loopAnimation: false,
         );
       },
       text: 'Error',
@@ -151,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title!),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(20.0),
@@ -171,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buildButton({VoidCallback onTap, String text, Color color}) {
+  Widget _buildButton({VoidCallback? onTap, required String text, Color? color}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
       child: MaterialButton(

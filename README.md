@@ -46,6 +46,8 @@ title| String | Set a custom title for dialog                                   
 | flareAnimationName              | String | The name of the flare animation to play                                                                                                                             |           "play" |
 | lottieAsset              | String | Custom lottie asset                                                                                                                             |           "animation.json" |
 |autoCloseDuration|Duration|Determines how long the dialog stays open for before closing|Null|
+|width|double|Dialog width|MediaQuery.of(context).size.width|
+|loopAnimation|boolean|Determines if the animation should loop or not|false|
 
 
 

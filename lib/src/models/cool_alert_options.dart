@@ -21,6 +21,8 @@ class CoolAlertOptions {
   String? flareAsset;
   String? flareAnimationName;
   String? lottieAsset;
+  double? width;
+  bool loopAnimation;
 
   CoolAlertOptions({
     this.title,
@@ -42,5 +44,7 @@ class CoolAlertOptions {
     this.flareAsset,
     this.flareAnimationName,
     this.lottieAsset,
+    this.width,
+    this.loopAnimation = false,
   });
 }

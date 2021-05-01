@@ -1,6 +1,7 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:cool_alert/src/constants/images.dart';
 import 'package:cool_alert/src/models/cool_alert_options.dart';
+import 'package:cool_alert/src/utils/single_loop_controller.dart';
 import 'package:cool_alert/src/widgets/cool_alert_buttons.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class CoolAlertContainer extends StatelessWidget {
     );
 
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: options!.width ?? MediaQuery.of(context).size.width,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [_header, _content],
@@ -93,7 +94,15 @@ class CoolAlertContainer extends StatelessWidget {
           child: options!.lottieAsset == null
               ? FlareActor(
                   anim,
-                  animation: options!.flareAnimationName,
+                  animation: options!.loopAnimation
+                      ? options!.flareAnimationName
+                      : null,
+                  controller: options!.loopAnimation
+                      ? null
+                      : SingleLoopController(
+                          options!.flareAnimationName!,
+                          1,
+                        ),
                 )
               : Lottie.asset(options!.lottieAsset!),
         ),

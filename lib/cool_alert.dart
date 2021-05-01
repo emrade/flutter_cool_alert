@@ -32,31 +32,69 @@ class CoolAlert {
 
     /// Custom Widget of the dialog
     Widget? widget,
+
+    // Alert type [success, error, warning, confirm, info, loading, custom]
     required CoolAlertType type,
+
+    // Animation type  [scale, rotate, slideInDown, slideInUp, slideInLeft, slideInRight]
     CoolAlertAnimType animType = CoolAlertAnimType.scale,
+
+    /// Barrier Dissmisable
     bool barrierDismissible = true,
+
+    // Triggered when confirm button is tapped
     VoidCallback? onConfirmBtnTap,
+
+    /// Triggered when cancel button is tapped
     VoidCallback? onCancelBtnTap,
+
+    /// Confirmation button text
     String confirmBtnText = 'Ok',
+
+    /// Cancel button text
     String cancelBtnText = 'Cancel',
+
+    /// Color for confirm button
     Color confirmBtnColor = const Color(0xFF3085D6),
+
+    /// TextStyle for confirm button
     TextStyle? confirmBtnTextStyle,
+
+    /// TextStyle for cancel button
     TextStyle? cancelBtnTextStyle,
+
+    /// Determines if cancel button is shown or not
     bool showCancelBtn = false,
+
+    /// Dialog Border Radius
     double borderRadius = 10.0,
+
+    /// Header background color
     Color backgroundColor = const Color(0xFF515C6F),
+
+    /// Flare asset path
     String? flareAsset,
+
+    /// Flare animation name
     String flareAnimationName = 'play',
+
+    /// Asset path of your lottie file
     String? lottieAsset,
+
+    /// Width of the dialog
+    double? width,
 
     /// Determines how long the dialog stays open for before closing
     /// [default] is null
     /// When it is null, it won't autoclose
     Duration? autoCloseDuration,
+
+    /// Detemines if the animation loops or not
+    bool loopAnimation = false,
   }) {
     if (autoCloseDuration != null) {
       Future.delayed(autoCloseDuration, () {
-        Navigator.of(context).pop();
+        Navigator.of(context, rootNavigator: true).pop();
       });
     }
 
@@ -80,6 +118,8 @@ class CoolAlert {
       flareAsset: flareAsset,
       flareAnimationName: flareAnimationName,
       lottieAsset: lottieAsset,
+      width: width,
+      loopAnimation: loopAnimation,
     );
 
     final child = AlertDialog(
@@ -94,7 +134,7 @@ class CoolAlert {
 
     return showGeneralDialog(
       barrierColor: Colors.black.withOpacity(0.5),
-      transitionBuilder: (context, anim1, anim2, widget) {
+      transitionBuilder: (context, anim1, __, widget) {
         switch (animType) {
           case CoolAlertAnimType.scale:
             return Animate.scale(child: child, animation: anim1);
@@ -119,14 +159,11 @@ class CoolAlert {
         }
       },
       transitionDuration: Duration(milliseconds: 200),
-      barrierDismissible: barrierDismissible,
+      barrierDismissible:
+          autoCloseDuration != null ? false : barrierDismissible,
       barrierLabel: '',
       context: context,
-      pageBuilder: ((context, anim1, anim2) => null) as Widget Function(
-        BuildContext,
-        Animation<double>,
-        Animation<double>,
-      ),
+      pageBuilder: (context, _, __) => Container(),
     );
   }
 }
