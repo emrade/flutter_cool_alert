@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flare_flutter: ^2.0.3
-  lottie: ^0.7.0+1
+  lottie: ^1.0.1
   vector_math: ^2.0.8
 
 dev_dependencies:
