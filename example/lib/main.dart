@@ -81,13 +81,12 @@ class _MyHomePageState extends State<MyHomePage> {
     final confirmAlert = _buildButton(
       onTap: () {
         CoolAlert.show(
-          context: context,
-          type: CoolAlertType.confirm,
-          text: "Do you want to logout",
-          confirmBtnText: "Yes",
-          cancelBtnText: "No",
-          confirmBtnColor: Colors.green
-        );
+            context: context,
+            type: CoolAlertType.confirm,
+            text: "Do you want to logout",
+            confirmBtnText: "Yes",
+            cancelBtnText: "No",
+            confirmBtnColor: Colors.green);
       },
       text: "Confirm",
       color: Colors.lightGreen,
@@ -102,6 +101,48 @@ class _MyHomePageState extends State<MyHomePage> {
       },
       text: "Loading",
       color: Colors.grey,
+    );
+
+    final customAlert = _buildButton(
+      onTap: () {
+        String _message = "";
+        CoolAlert.show(
+          context: context,
+          type: CoolAlertType.custom,
+          barrierDismissible: false,
+          showCancelBtn: true,
+          title: "Message",
+          confirmBtnText: "Send",
+          widget: TextFormField(
+            key: UniqueKey(),
+            minLines: 2,
+            maxLines: 4,
+            decoration: InputDecoration(hintText: "Please enter the content here"),
+            textInputAction: TextInputAction.next,
+            keyboardType: TextInputType.phone,
+            onChanged: (value) => _message = value,
+          ),
+          onConfirmBtnTap: () async {
+            if (_message.length < 5) {
+              CoolAlert.show(
+                context: context,
+                type: CoolAlertType.warning,
+                text: "Please input something",
+              );
+              return;
+            }
+            Navigator.pop(context);
+            await Future.delayed(Duration(milliseconds: 1000));
+            CoolAlert.show(
+              context: context,
+              type: CoolAlertType.success,
+              text: "The message '$_message' has been sent.",
+            );
+          },
+        );
+      },
+      text: "Custom",
+      color: Colors.orange,
     );
 
     return Scaffold(
@@ -119,6 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
             infoAlert,
             confirmAlert,
             loadingAlert,
+            customAlert,
           ],
         ),
       ),
@@ -131,8 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: MaterialButton(
         color: color,
         minWidth: double.infinity,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         onPressed: onTap,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 15.0),

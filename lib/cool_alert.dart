@@ -1,11 +1,12 @@
 library cool_alert;
 
 import 'package:flutter/material.dart';
+
 import 'src/models/cool_alert_options.dart';
 import 'src/utils/animate.dart';
 import 'src/widgets/cool_alert_container.dart';
 
-enum CoolAlertType { success, error, warning, confirm, info, loading }
+enum CoolAlertType { success, error, warning, confirm, info, loading, custom }
 enum CoolAlertAnimType {
   scale,
   rotate,
@@ -26,6 +27,9 @@ class CoolAlert {
 
     /// Text of the dialog
     String text,
+
+    /// Custom Widget of the dialog
+    Widget widget,
     @required CoolAlertType type,
     CoolAlertAnimType animType = CoolAlertAnimType.scale,
     bool barrierDismissible = true,
@@ -46,6 +50,7 @@ class CoolAlert {
     CoolAlertOptions options = new CoolAlertOptions(
       title: title,
       text: text,
+      widget: widget,
       type: type,
       animType: animType,
       barrierDismissible: barrierDismissible,

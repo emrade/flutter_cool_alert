@@ -13,12 +13,14 @@ class CoolAlertContainer extends StatelessWidget {
     Key key,
     this.options,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final _header = _buildHeader(context);
     final _title = _buildTitle(context);
     final _text = _buildText(context);
     final _buttons = _buildButtons();
+    final _widget = _buildWidget(context);
 
     final _content = Container(
       padding: EdgeInsets.all(20.0),
@@ -29,6 +31,7 @@ class CoolAlertContainer extends StatelessWidget {
             height: 5.0,
           ),
           _text,
+          _widget,
           SizedBox(
             height: 10.0,
           ),
@@ -139,6 +142,18 @@ class CoolAlertContainer extends StatelessWidget {
     }
   }
 
+  Widget _buildWidget(context) {
+    if (options.widget == null && options.type != CoolAlertType.custom) {
+      return Container();
+    } else {
+      Widget widget = Container();
+      if (options.type == CoolAlertType.custom) {
+        widget = options.widget ?? widget;
+      }
+      return options.widget;
+    }
+  }
+
   Widget _buildButtons() {
     if (options.type == CoolAlertType.loading) {
       return Container();
@@ -162,6 +177,9 @@ class CoolAlertContainer extends StatelessWidget {
         return "Are you sure?";
         break;
       case CoolAlertType.info:
+        return "Info!";
+        break;
+      case CoolAlertType.custom:
         return "Info!";
         break;
       case CoolAlertType.loading:
