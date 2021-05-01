@@ -3,8 +3,8 @@ import 'package:vector_math/vector_math.dart' as math;
 
 class Animate {
   static Transform scale({
-    @required Widget child,
-    @required Animation<double> animation,
+    required Widget child,
+    required Animation<double> animation,
   }) {
     return Transform.scale(
       scale: animation.value,
@@ -16,8 +16,8 @@ class Animate {
   }
 
   static Transform rotate({
-    @required Widget child,
-    @required Animation<double> animation,
+    required Widget child,
+    required Animation<double> animation,
   }) {
     return Transform.rotate(
       angle: math.radians(animation.value * 360),
@@ -29,8 +29,8 @@ class Animate {
   }
 
   static Transform slideInDown({
-    @required Widget child,
-    @required Animation<double> animation,
+    required Widget child,
+    required Animation<double> animation,
   }) {
     final curvedValue = Curves.easeInOutBack.transform(animation.value) - 1.0;
     return Transform(
@@ -43,8 +43,8 @@ class Animate {
   }
 
   static Transform slideInUp({
-    @required Widget child,
-    @required Animation<double> animation,
+    required Widget child,
+    required Animation<double> animation,
   }) {
     final curvedValue = Curves.easeInOutBack.transform(animation.value) - 1.0;
     return Transform(
@@ -57,8 +57,8 @@ class Animate {
   }
 
   static Transform slideInLeft({
-    @required Widget child,
-    @required Animation<double> animation,
+    required Widget child,
+    required Animation<double> animation,
   }) {
     final curvedValue = Curves.easeInOutBack.transform(animation.value) - 1.0;
     return Transform(
@@ -71,8 +71,8 @@ class Animate {
   }
 
   static Transform slideInRight({
-    @required Widget child,
-    @required Animation animation,
+    required Widget child,
+    required Animation animation,
   }) {
     final curvedValue = Curves.easeInOutBack.transform(animation.value) - 1.0;
     return Transform(

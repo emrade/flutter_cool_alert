@@ -20,32 +20,32 @@ enum CoolAlertAnimType {
 class CoolAlert {
   static Future show({
     /// BuildContext
-    @required BuildContext context,
+    required BuildContext context,
 
     /// Title of the dialog
-    String title,
+    String? title,
 
     /// Text of the dialog
-    String text,
+    String? text,
 
     /// Custom Widget of the dialog
-    Widget widget,
-    @required CoolAlertType type,
+    Widget? widget,
+    required CoolAlertType type,
     CoolAlertAnimType animType = CoolAlertAnimType.scale,
     bool barrierDismissible = true,
-    VoidCallback onConfirmBtnTap,
-    VoidCallback onCancelBtnTap,
+    VoidCallback? onConfirmBtnTap,
+    VoidCallback? onCancelBtnTap,
     String confirmBtnText = 'Ok',
     String cancelBtnText = 'Cancel',
     Color confirmBtnColor = const Color(0xFF3085D6),
-    TextStyle confirmBtnTextStyle,
-    TextStyle cancelBtnTextStyle,
+    TextStyle? confirmBtnTextStyle,
+    TextStyle? cancelBtnTextStyle,
     bool showCancelBtn = false,
     double borderRadius = 10.0,
     Color backgroundColor = const Color(0xFF515C6F),
-    String flareAsset,
+    String? flareAsset,
     String flareAnimationName = 'play',
-    String lottieAsset,
+    String? lottieAsset,
   }) {
     final options = CoolAlertOptions(
       title: title,
@@ -85,22 +85,22 @@ class CoolAlert {
         switch (animType) {
           case CoolAlertAnimType.scale:
             return Animate.scale(child: child, animation: anim1);
-            break;
+
           case CoolAlertAnimType.rotate:
             return Animate.rotate(child: child, animation: anim1);
-            break;
+
           case CoolAlertAnimType.slideInDown:
             return Animate.slideInDown(child: child, animation: anim1);
-            break;
+
           case CoolAlertAnimType.slideInUp:
             return Animate.slideInUp(child: child, animation: anim1);
-            break;
+
           case CoolAlertAnimType.slideInLeft:
             return Animate.slideInLeft(child: child, animation: anim1);
-            break;
+
           case CoolAlertAnimType.slideInRight:
             return Animate.slideInRight(child: child, animation: anim1);
-            break;
+
           default:
             return child;
         }
@@ -109,7 +109,8 @@ class CoolAlert {
       barrierDismissible: barrierDismissible,
       barrierLabel: '',
       context: context,
-      pageBuilder: (context, anim1, anim2) => null,
+      pageBuilder: ((context, anim1, anim2) => null) as Widget Function(
+          BuildContext, Animation<double>, Animation<double>),
     );
   }
 }

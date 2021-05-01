@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class CoolAlertContainer extends StatelessWidget {
-  final CoolAlertOptions options;
+  final CoolAlertOptions? options;
 
   const CoolAlertContainer({
-    Key key,
+    Key? key,
     this.options,
   }) : super(key: key);
 
@@ -31,7 +31,7 @@ class CoolAlertContainer extends StatelessWidget {
             height: 5.0,
           ),
           _text,
-          _widget,
+          _widget!,
           SizedBox(
             height: 10.0,
           ),
@@ -50,12 +50,12 @@ class CoolAlertContainer extends StatelessWidget {
   }
 
   Widget _buildHeader(context) {
-    if (options.type == CoolAlertType.loading) {
+    if (options!.type == CoolAlertType.loading) {
       return Container();
     } else {
-      var anim = AppAnim.success;
+      String? anim = AppAnim.success;
 
-      switch (options.type) {
+      switch (options!.type) {
         case CoolAlertType.success:
           anim = AppAnim.success;
           break;
@@ -75,49 +75,49 @@ class CoolAlertContainer extends StatelessWidget {
           anim = AppAnim.info;
       }
 
-      if (options.flareAsset != null) {
-        anim = options.flareAsset;
+      if (options!.flareAsset != null) {
+        anim = options!.flareAsset;
       }
       return Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: options.backgroundColor,
+          color: options!.backgroundColor,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(options.borderRadius),
-            topRight: Radius.circular(options.borderRadius),
+            topLeft: Radius.circular(options!.borderRadius!),
+            topRight: Radius.circular(options!.borderRadius!),
           ),
         ),
         child: Container(
           height: 150,
           width: 150,
-          child: options.lottieAsset == null
+          child: options!.lottieAsset == null
               ? FlareActor(
                   anim,
-                  animation: options.flareAnimationName,
+                  animation: options!.flareAnimationName,
                 )
-              : Lottie.asset(options.lottieAsset),
+              : Lottie.asset(options!.lottieAsset!),
         ),
       );
     }
   }
 
   Widget _buildTitle(context) {
-    if (options.type == CoolAlertType.loading) {
+    if (options!.type == CoolAlertType.loading) {
       return Padding(
         padding: const EdgeInsets.only(bottom: 0.0),
         child: Container(
           height: 100,
           width: 100,
-          child: options.lottieAsset == null
+          child: options!.lottieAsset == null
               ? FlareActor(
                   AppAnim.loading,
-                  animation: options.flareAnimationName,
+                  animation: options!.flareAnimationName,
                 )
-              : Lottie.asset(options.lottieAsset),
+              : Lottie.asset(options!.lottieAsset!),
         ),
       );
     } else {
-      final title = options.title ?? _whatTitle();
+      final title = options!.title ?? _whatTitle();
       return Visibility(
         visible: title != null,
         child: Text(
@@ -129,14 +129,14 @@ class CoolAlertContainer extends StatelessWidget {
   }
 
   Widget _buildText(context) {
-    if (options.text == null && options.type != CoolAlertType.loading) {
+    if (options!.text == null && options!.type != CoolAlertType.loading) {
       return Container();
     } else {
-      var text = '';
-      if (options.type == CoolAlertType.loading) {
-        text = options.text ?? 'Loading...';
+      String? text = '';
+      if (options!.type == CoolAlertType.loading) {
+        text = options!.text ?? 'Loading...';
       } else {
-        text = options.text;
+        text = options!.text;
       }
       return Text(
         text ?? '',
@@ -145,20 +145,20 @@ class CoolAlertContainer extends StatelessWidget {
     }
   }
 
-  Widget _buildWidget(context) {
-    if (options.widget == null && options.type != CoolAlertType.custom) {
+  Widget? _buildWidget(context) {
+    if (options!.widget == null && options!.type != CoolAlertType.custom) {
       return Container();
     } else {
       Widget widget = Container();
-      if (options.type == CoolAlertType.custom) {
-        widget = options.widget ?? widget;
+      if (options!.type == CoolAlertType.custom) {
+        widget = options!.widget ?? widget;
       }
-      return options.widget;
+      return options!.widget;
     }
   }
 
   Widget _buildButtons() {
-    if (options.type == CoolAlertType.loading) {
+    if (options!.type == CoolAlertType.loading) {
       return Container();
     } else {
       return CoolAlertButtons(
@@ -167,27 +167,22 @@ class CoolAlertContainer extends StatelessWidget {
     }
   }
 
-  String _whatTitle() {
-    switch (options.type) {
+  String? _whatTitle() {
+    switch (options!.type) {
       case CoolAlertType.success:
         return 'Success!!!';
       case CoolAlertType.error:
         return 'Error!!!';
       case CoolAlertType.warning:
         return 'Warning!!!';
-        break;
       case CoolAlertType.confirm:
         return 'Are you sure?';
-        break;
       case CoolAlertType.info:
         return 'Info!';
-        break;
       case CoolAlertType.custom:
         return null;
-        break;
       case CoolAlertType.loading:
         return null;
-        break;
       default:
         return null;
     }
