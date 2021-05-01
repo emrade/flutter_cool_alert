@@ -1,5 +1,7 @@
 library cool_alert;
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'src/models/cool_alert_options.dart';
@@ -46,7 +48,18 @@ class CoolAlert {
     String? flareAsset,
     String flareAnimationName = 'play',
     String? lottieAsset,
+
+    /// Determines how long the dialog stays open for before closing
+    /// [default] is null
+    /// When it is null, it won't autoclose
+    Duration? autoCloseDuration,
   }) {
+    if (autoCloseDuration != null) {
+      Future.delayed(autoCloseDuration, () {
+        Navigator.of(context).pop();
+      });
+    }
+
     final options = CoolAlertOptions(
       title: title,
       text: text,
@@ -110,7 +123,10 @@ class CoolAlert {
       barrierLabel: '',
       context: context,
       pageBuilder: ((context, anim1, anim2) => null) as Widget Function(
-          BuildContext, Animation<double>, Animation<double>),
+        BuildContext,
+        Animation<double>,
+        Animation<double>,
+      ),
     );
   }
 }

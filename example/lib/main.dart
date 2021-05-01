@@ -37,6 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
           context: context,
           type: CoolAlertType.success,
           text: 'Transaction completed successfully!',
+          autoCloseDuration: Duration(seconds: 2),
         );
       },
       text: 'Success',
@@ -113,7 +114,6 @@ class _MyHomePageState extends State<MyHomePage> {
           context: context,
           type: CoolAlertType.custom,
           barrierDismissible: true,
-          // title: 'Contact',
           confirmBtnText: 'Save',
           widget: TextFormField(
             decoration: InputDecoration(
