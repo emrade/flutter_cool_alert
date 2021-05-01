@@ -1,5 +1,6 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,6 +11,7 @@ class MyApp extends StatelessWidget {
       title: 'Cool Alert',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: GoogleFonts.poppins().fontFamily,
       ),
       home: MyHomePage(title: 'Cool Alert'),
       debugShowCheckedModeBanner: false,
@@ -81,12 +83,13 @@ class _MyHomePageState extends State<MyHomePage> {
     final confirmAlert = _buildButton(
       onTap: () {
         CoolAlert.show(
-            context: context,
-            type: CoolAlertType.confirm,
-            text: "Do you want to logout",
-            confirmBtnText: "Yes",
-            cancelBtnText: "No",
-            confirmBtnColor: Colors.green);
+          context: context,
+          type: CoolAlertType.confirm,
+          text: "Do you want to logout",
+          confirmBtnText: "Yes",
+          cancelBtnText: "No",
+          confirmBtnColor: Colors.green,
+        );
       },
       text: "Confirm",
       color: Colors.lightGreen,
@@ -109,15 +112,16 @@ class _MyHomePageState extends State<MyHomePage> {
         CoolAlert.show(
           context: context,
           type: CoolAlertType.custom,
-          barrierDismissible: false,
-          showCancelBtn: true,
-          title: "Message",
-          confirmBtnText: "Send",
+          barrierDismissible: true,
+          // title: "Contact",
+          confirmBtnText: "Save",
           widget: TextFormField(
-            key: UniqueKey(),
-            minLines: 2,
-            maxLines: 4,
-            decoration: InputDecoration(hintText: "Please enter the content here"),
+            decoration: InputDecoration(
+              hintText: "Enter Phone Number",
+              prefixIcon: Icon(
+                Icons.phone_outlined,
+              ),
+            ),
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.phone,
             onChanged: (value) => _message = value,
@@ -126,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
             if (_message.length < 5) {
               CoolAlert.show(
                 context: context,
-                type: CoolAlertType.warning,
+                type: CoolAlertType.error,
                 text: "Please input something",
               );
               return;
@@ -136,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
             CoolAlert.show(
               context: context,
               type: CoolAlertType.success,
-              text: "The message '$_message' has been sent.",
+              text: "Phone number '$_message' has been saved!.",
             );
           },
         );
@@ -173,7 +177,9 @@ class _MyHomePageState extends State<MyHomePage> {
       child: MaterialButton(
         color: color,
         minWidth: double.infinity,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
         onPressed: onTap,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 15.0),

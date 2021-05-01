@@ -118,9 +118,12 @@ class CoolAlertContainer extends StatelessWidget {
       );
     } else {
       String title = options.title == null ? _whatTitle() : options.title;
-      return Text(
-        title,
-        style: Theme.of(context).textTheme.headline6,
+      return Visibility(
+        visible: title != null,
+        child: Text(
+          "$title",
+          style: Theme.of(context).textTheme.headline6,
+        ),
       );
     }
   }
@@ -180,7 +183,7 @@ class CoolAlertContainer extends StatelessWidget {
         return "Info!";
         break;
       case CoolAlertType.custom:
-        return "Info!";
+        return null;
         break;
       case CoolAlertType.loading:
         return null;
