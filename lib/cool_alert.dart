@@ -35,8 +35,8 @@ class CoolAlert {
     bool barrierDismissible = true,
     VoidCallback onConfirmBtnTap,
     VoidCallback onCancelBtnTap,
-    String confirmBtnText = "Ok",
-    String cancelBtnText = "Cancel",
+    String confirmBtnText = 'Ok',
+    String cancelBtnText = 'Cancel',
     Color confirmBtnColor = const Color(0xFF3085D6),
     TextStyle confirmBtnTextStyle,
     TextStyle cancelBtnTextStyle,
@@ -44,10 +44,10 @@ class CoolAlert {
     double borderRadius = 10.0,
     Color backgroundColor = const Color(0xFF515C6F),
     String flareAsset,
-    String flareAnimationName = "play",
+    String flareAnimationName = 'play',
     String lottieAsset,
   }) {
-    CoolAlertOptions options = new CoolAlertOptions(
+    final options = CoolAlertOptions(
       title: title,
       text: text,
       widget: widget,
@@ -69,7 +69,7 @@ class CoolAlert {
       lottieAsset: lottieAsset,
     );
 
-    Widget child = AlertDialog(
+    final child = AlertDialog(
       contentPadding: EdgeInsets.zero,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(borderRadius),
@@ -78,6 +78,7 @@ class CoolAlert {
         options: options,
       ),
     );
+
     return showGeneralDialog(
       barrierColor: Colors.black.withOpacity(0.5),
       transitionBuilder: (context, anim1, anim2, widget) {

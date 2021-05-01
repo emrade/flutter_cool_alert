@@ -53,7 +53,7 @@ class CoolAlertContainer extends StatelessWidget {
     if (options.type == CoolAlertType.loading) {
       return Container();
     } else {
-      String anim = AppAnim.success;
+      var anim = AppAnim.success;
 
       switch (options.type) {
         case CoolAlertType.success:
@@ -117,11 +117,11 @@ class CoolAlertContainer extends StatelessWidget {
         ),
       );
     } else {
-      String title = options.title == null ? _whatTitle() : options.title;
+      final title = options.title ?? _whatTitle();
       return Visibility(
         visible: title != null,
         child: Text(
-          "$title",
+          '$title',
           style: Theme.of(context).textTheme.headline6,
         ),
       );
@@ -132,14 +132,14 @@ class CoolAlertContainer extends StatelessWidget {
     if (options.text == null && options.type != CoolAlertType.loading) {
       return Container();
     } else {
-      String text = "";
+      var text = '';
       if (options.type == CoolAlertType.loading) {
-        text = options.text ?? "Loading...";
+        text = options.text ?? 'Loading...';
       } else {
         text = options.text;
       }
       return Text(
-        text ?? "",
+        text ?? '',
         textAlign: TextAlign.center,
       );
     }
@@ -170,17 +170,17 @@ class CoolAlertContainer extends StatelessWidget {
   String _whatTitle() {
     switch (options.type) {
       case CoolAlertType.success:
-        return "Success!!!";
+        return 'Success!!!';
       case CoolAlertType.error:
-        return "Error!!!";
+        return 'Error!!!';
       case CoolAlertType.warning:
-        return "Warning!!!";
+        return 'Warning!!!';
         break;
       case CoolAlertType.confirm:
-        return "Are you sure?";
+        return 'Are you sure?';
         break;
       case CoolAlertType.info:
-        return "Info!";
+        return 'Info!';
         break;
       case CoolAlertType.custom:
         return null;

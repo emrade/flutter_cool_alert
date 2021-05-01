@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:vector_math/vector_math.dart' as math;
 
 class Animate {
-  static scale({
+  static Transform scale({
     @required Widget child,
     @required Animation<double> animation,
   }) {
@@ -15,7 +15,7 @@ class Animate {
     );
   }
 
-  static rotate({
+  static Transform rotate({
     @required Widget child,
     @required Animation<double> animation,
   }) {
@@ -28,7 +28,7 @@ class Animate {
     );
   }
 
-  static slideInDown({
+  static Transform slideInDown({
     @required Widget child,
     @required Animation<double> animation,
   }) {
@@ -42,7 +42,7 @@ class Animate {
     );
   }
 
-  static slideInUp({
+  static Transform slideInUp({
     @required Widget child,
     @required Animation<double> animation,
   }) {
@@ -56,7 +56,7 @@ class Animate {
     );
   }
 
-  static slideInLeft({
+  static Transform slideInLeft({
     @required Widget child,
     @required Animation<double> animation,
   }) {
@@ -70,7 +70,7 @@ class Animate {
     );
   }
 
-  static slideInRight({
+  static Transform slideInRight({
     @required Widget child,
     @required Animation animation,
   }) {

@@ -36,10 +36,10 @@ class _MyHomePageState extends State<MyHomePage> {
         CoolAlert.show(
           context: context,
           type: CoolAlertType.success,
-          text: "Transaction completed successfully!",
+          text: 'Transaction completed successfully!',
         );
       },
-      text: "Success",
+      text: 'Success',
       color: Colors.green,
     );
 
@@ -48,11 +48,11 @@ class _MyHomePageState extends State<MyHomePage> {
         CoolAlert.show(
           context: context,
           type: CoolAlertType.error,
-          title: "Oops...",
-          text: "Sorry, something went wrong",
+          title: 'Oops...',
+          text: 'Sorry, something went wrong',
         );
       },
-      text: "Error",
+      text: 'Error',
       color: Colors.red,
     );
 
@@ -61,10 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
         CoolAlert.show(
           context: context,
           type: CoolAlertType.warning,
-          text: "You just broke protocol",
+          text: 'You just broke protocol',
         );
       },
-      text: "Warning",
+      text: 'Warning',
       color: Colors.orange,
     );
 
@@ -73,10 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
         CoolAlert.show(
           context: context,
           type: CoolAlertType.info,
-          text: "Buy two, get one free",
+          text: 'Buy two, get one free',
         );
       },
-      text: "Info",
+      text: 'Info',
       color: Colors.blue[100],
     );
 
@@ -85,13 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
         CoolAlert.show(
           context: context,
           type: CoolAlertType.confirm,
-          text: "Do you want to logout",
-          confirmBtnText: "Yes",
-          cancelBtnText: "No",
+          text: 'Do you want to logout',
+          confirmBtnText: 'Yes',
+          cancelBtnText: 'No',
           confirmBtnColor: Colors.green,
         );
       },
-      text: "Confirm",
+      text: 'Confirm',
       color: Colors.lightGreen,
     );
 
@@ -102,22 +102,22 @@ class _MyHomePageState extends State<MyHomePage> {
           type: CoolAlertType.loading,
         );
       },
-      text: "Loading",
+      text: 'Loading',
       color: Colors.grey,
     );
 
     final customAlert = _buildButton(
       onTap: () {
-        String _message = "";
+        var _message = '';
         CoolAlert.show(
           context: context,
           type: CoolAlertType.custom,
           barrierDismissible: true,
-          // title: "Contact",
-          confirmBtnText: "Save",
+          // title: 'Contact',
+          confirmBtnText: 'Save',
           widget: TextFormField(
             decoration: InputDecoration(
-              hintText: "Enter Phone Number",
+              hintText: 'Enter Phone Number',
               prefixIcon: Icon(
                 Icons.phone_outlined,
               ),
@@ -128,16 +128,16 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           onConfirmBtnTap: () async {
             if (_message.length < 5) {
-              CoolAlert.show(
+              await CoolAlert.show(
                 context: context,
                 type: CoolAlertType.error,
-                text: "Please input something",
+                text: 'Please input something',
               );
               return;
             }
             Navigator.pop(context);
             await Future.delayed(Duration(milliseconds: 1000));
-            CoolAlert.show(
+            await CoolAlert.show(
               context: context,
               type: CoolAlertType.success,
               text: "Phone number '$_message' has been saved!.",
@@ -145,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
           },
         );
       },
-      text: "Custom",
+      text: 'Custom',
       color: Colors.orange,
     );
 

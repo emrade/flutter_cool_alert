@@ -25,16 +25,14 @@ class CoolAlertButtons extends StatelessWidget {
   }
 
   Widget _okayBtn(context) {
-    bool showCancelBtn =
+    final showCancelBtn =
         options.type == CoolAlertType.confirm ? true : options.showCancelBtn;
 
     final _okayBtn = _buildButton(
       context: context,
       isOkayBtn: true,
       text: options.confirmBtnText,
-      onTap: options.onConfirmBtnTap != null
-          ? options.onConfirmBtnTap
-          : () => Navigator.pop(context),
+      onTap: options.onConfirmBtnTap ?? () => Navigator.pop(context),
     );
 
     if (showCancelBtn) {
@@ -45,16 +43,14 @@ class CoolAlertButtons extends StatelessWidget {
   }
 
   Widget _cancelBtn(context) {
-    bool showCancelBtn =
+    final showCancelBtn =
         options.type == CoolAlertType.confirm ? true : options.showCancelBtn;
 
     final _cancelBtn = _buildButton(
       context: context,
       isOkayBtn: false,
       text: options.cancelBtnText,
-      onTap: options.onCancelBtnTap != null
-          ? options.onCancelBtnTap
-          : () => Navigator.pop(context),
+      onTap: options.onCancelBtnTap ?? () => Navigator.pop(context),
     );
 
     if (showCancelBtn) {
