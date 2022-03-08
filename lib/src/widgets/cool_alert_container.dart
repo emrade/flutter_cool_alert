@@ -6,6 +6,7 @@ import 'package:cool_alert/src/widgets/cool_alert_buttons.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:rive/rive.dart';
 
 class CoolAlertContainer extends StatelessWidget {
   final CoolAlertOptions? options;
@@ -91,20 +92,25 @@ class CoolAlertContainer extends StatelessWidget {
         child: Container(
           height: 150,
           width: 150,
-          child: options!.lottieAsset == null
-              ? FlareActor(
-                  anim,
-                  animation: options!.loopAnimation
-                      ? options!.flareAnimationName
-                      : null,
-                  controller: options!.loopAnimation
-                      ? null
-                      : SingleLoopController(
-                          options!.flareAnimationName!,
-                          1,
-                        ),
-                )
-              : Lottie.asset(options!.lottieAsset!),
+          child: options!.lottieAsset != null
+              ? Lottie.asset(options!.lottieAsset!)
+              : (options!.riveAsset != null
+                  ? RiveAnimation.asset(
+                      options!.riveAsset!,
+                      fit: BoxFit.contain,
+                    )
+                  : FlareActor(
+                      anim,
+                      animation: options!.loopAnimation
+                          ? options!.flareAnimationName
+                          : null,
+                      controller: options!.loopAnimation
+                          ? null
+                          : SingleLoopController(
+                              options!.flareAnimationName!,
+                              1,
+                            ),
+                    )),
         ),
       );
     }
