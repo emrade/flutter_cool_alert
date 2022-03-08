@@ -18,6 +18,7 @@ class CoolAlertOptions {
   bool? showCancelBtn;
   double? borderRadius;
   Color? backgroundColor;
+  String? riveAsset;
   String? flareAsset;
   String? flareAnimationName;
   String? lottieAsset;
@@ -41,6 +42,7 @@ class CoolAlertOptions {
     this.showCancelBtn,
     this.borderRadius,
     this.backgroundColor,
+    this.riveAsset,
     this.flareAsset,
     this.flareAnimationName,
     this.lottieAsset,

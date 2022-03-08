@@ -72,6 +72,9 @@ class CoolAlert {
     /// Header background color
     Color backgroundColor = const Color(0xFF515C6F),
 
+    /// Rive asset path
+    String? riveAsset,
+
     /// Flare asset path
     String? flareAsset,
 
@@ -115,6 +118,7 @@ class CoolAlert {
       showCancelBtn: showCancelBtn,
       borderRadius: borderRadius,
       backgroundColor: backgroundColor,
+      riveAsset: riveAsset,
       flareAsset: flareAsset,
       flareAnimationName: flareAnimationName,
       lottieAsset: lottieAsset,
