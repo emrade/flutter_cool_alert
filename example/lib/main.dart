@@ -77,6 +77,15 @@ class _MyHomePageState extends State<MyHomePage> {
           context: context,
           type: CoolAlertType.info,
           text: 'Buy two, get one free',
+          titleTextStyle: TextStyle(
+            color: Colors.blue[900],
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+          textTextStyle: TextStyle(
+            color: Colors.blue[500],
+            fontSize: 14,
+          ),
         );
       },
       text: 'Info',
@@ -92,7 +101,6 @@ class _MyHomePageState extends State<MyHomePage> {
           confirmBtnText: 'Yes',
           cancelBtnText: 'No',
           confirmBtnColor: Colors.green,
-          reverseBtnOrder: true,
         );
       },
       text: 'Confirm',

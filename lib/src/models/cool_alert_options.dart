@@ -15,6 +15,8 @@ class CoolAlertOptions {
   Color? confirmBtnColor;
   TextStyle? confirmBtnTextStyle;
   TextStyle? cancelBtnTextStyle;
+  TextStyle? titleTextStyle;
+  TextStyle? textTextStyle;
   bool? showCancelBtn;
   double? borderRadius;
   Color? backgroundColor;
@@ -41,6 +43,8 @@ class CoolAlertOptions {
     this.confirmBtnColor,
     this.confirmBtnTextStyle,
     this.cancelBtnTextStyle,
+    this.titleTextStyle,
+    this.textTextStyle,
     this.showCancelBtn,
     this.borderRadius,
     this.backgroundColor,

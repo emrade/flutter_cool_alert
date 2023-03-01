@@ -64,6 +64,12 @@ class CoolAlert {
     /// TextStyle for cancel button
     TextStyle? cancelBtnTextStyle,
 
+    /// TextStyle for title
+    TextStyle? titleTextStyle,
+
+    /// TextStyle for text
+    TextStyle? textTextStyle,
+
     /// Determines if cancel button is shown or not
     bool showCancelBtn = false,
 
@@ -122,6 +128,8 @@ class CoolAlert {
       confirmBtnColor: confirmBtnColor,
       confirmBtnTextStyle: confirmBtnTextStyle,
       cancelBtnTextStyle: cancelBtnTextStyle,
+      titleTextStyle: titleTextStyle,
+      textTextStyle: textTextStyle,
       showCancelBtn: showCancelBtn,
       borderRadius: borderRadius,
       backgroundColor: backgroundColor,

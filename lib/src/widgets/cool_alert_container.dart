@@ -131,7 +131,10 @@ class CoolAlertContainer extends StatelessWidget {
         visible: title != null,
         child: Text(
           '$title',
-          style: Theme.of(context).textTheme.titleLarge,
+          style: options.titleTextStyle ??
+              Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
         ),
       );
     }
@@ -150,6 +153,7 @@ class CoolAlertContainer extends StatelessWidget {
       return Text(
         text ?? '',
         textAlign: TextAlign.center,
+        style: options.textTextStyle,
       );
     }
   }
@@ -162,7 +166,7 @@ class CoolAlertContainer extends StatelessWidget {
       if (options.type == CoolAlertType.custom) {
         widget = options.widget ?? widget;
       }
-      return options.widget;
+      return widget;
     }
   }
 
