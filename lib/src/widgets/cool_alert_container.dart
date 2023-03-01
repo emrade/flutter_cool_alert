@@ -104,7 +104,7 @@ class CoolAlertContainer extends StatelessWidget {
                           1,
                         ),
                 )
-              : Lottie.asset(options!.lottieAsset!),
+              : Lottie.asset(options!.lottieAsset!,repeat: options!.loopAnimation),
         ),
       );
     }
