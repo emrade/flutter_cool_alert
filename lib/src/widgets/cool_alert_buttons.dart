@@ -12,14 +12,19 @@ class CoolAlertButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> buttons = [
+      _cancelBtn(context),
+      _okayBtn(context),
+    ];
+    if (options.reverseBtnOrder) {
+      buttons = buttons.reversed.toList();
+    }
+
     return Container(
       margin: const EdgeInsets.only(top: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          _cancelBtn(context),
-          _okayBtn(context),
-        ],
+        children: buttons,
       ),
     );
   }
@@ -88,6 +93,7 @@ class CoolAlertButtons extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30.0),
       ),
+      elevation: 0,
       color: options.confirmBtnColor ?? Theme.of(context!).primaryColor,
       onPressed: onTap,
       child: Center(
@@ -109,7 +115,7 @@ class CoolAlertButtons extends StatelessWidget {
     final textStyle = TextStyle(
       color: isOkayBtn ? Colors.white : Colors.grey,
       fontWeight: FontWeight.w600,
-      fontSize: 18.0,
+      fontSize: 14.0,
     );
 
     if (isOkayBtn) {

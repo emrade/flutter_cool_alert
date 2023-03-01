@@ -98,6 +98,9 @@ class CoolAlert {
     /// When it is true, it will close
     /// When it is false, you will have to close it manually by using Navigator.of(context).pop();
     bool closeOnConfirmBtnTap = true,
+
+    /// Reverse the order of the buttons
+    bool reverseBtnOrder = false,
   }) {
     if (autoCloseDuration != null) {
       Future.delayed(autoCloseDuration, () {
@@ -129,6 +132,7 @@ class CoolAlert {
       loopAnimation: loopAnimation,
       closeOnConfirmBtnTap: closeOnConfirmBtnTap,
       autoCloseDuration: autoCloseDuration,
+      reverseBtnOrder: reverseBtnOrder,
     );
 
     final child = AlertDialog(

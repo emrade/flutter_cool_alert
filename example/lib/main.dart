@@ -92,6 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
           confirmBtnText: 'Yes',
           cancelBtnText: 'No',
           confirmBtnColor: Colors.green,
+          reverseBtnOrder: true,
         );
       },
       text: 'Confirm',

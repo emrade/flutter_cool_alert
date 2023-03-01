@@ -25,6 +25,7 @@ class CoolAlertOptions {
   bool loopAnimation;
   bool closeOnConfirmBtnTap;
   Duration? autoCloseDuration;
+  bool reverseBtnOrder = false;
 
   CoolAlertOptions({
     this.title,
@@ -50,5 +51,6 @@ class CoolAlertOptions {
     this.loopAnimation = false,
     this.closeOnConfirmBtnTap = true,
     this.autoCloseDuration,
+    this.reverseBtnOrder = false,
   });
 }
