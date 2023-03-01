@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class CoolAlertButtons extends StatelessWidget {
   final CoolAlertOptions? options;
 
-  CoolAlertButtons({
+  const CoolAlertButtons({
     Key? key,
     this.options,
   }) : super(key: key);
@@ -13,7 +13,7 @@ class CoolAlertButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10.0),
+      margin: const EdgeInsets.only(top: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -28,7 +28,7 @@ class CoolAlertButtons extends StatelessWidget {
     final showCancelBtn =
         options!.type == CoolAlertType.confirm ? true : options!.showCancelBtn!;
 
-    final _okayBtn = _buildButton(
+    final okayBtn = _buildButton(
       context: context,
       isOkayBtn: true,
       text: options!.confirmBtnText!,
@@ -36,9 +36,9 @@ class CoolAlertButtons extends StatelessWidget {
     );
 
     if (showCancelBtn) {
-      return Expanded(child: _okayBtn);
+      return Expanded(child: okayBtn);
     } else {
-      return _okayBtn;
+      return okayBtn;
     }
   }
 
@@ -46,7 +46,7 @@ class CoolAlertButtons extends StatelessWidget {
     final showCancelBtn =
         options!.type == CoolAlertType.confirm ? true : options!.showCancelBtn!;
 
-    final _cancelBtn = _buildButton(
+    final cancelBtn = _buildButton(
       context: context,
       isOkayBtn: false,
       text: options!.cancelBtnText!,
@@ -54,7 +54,7 @@ class CoolAlertButtons extends StatelessWidget {
     );
 
     if (showCancelBtn) {
-      return Expanded(child: _cancelBtn);
+      return Expanded(child: cancelBtn);
     } else {
       return Container();
     }
@@ -66,7 +66,7 @@ class CoolAlertButtons extends StatelessWidget {
     required String text,
     VoidCallback? onTap,
   }) {
-    final _btnText = Text(
+    final btnText = Text(
       text,
       style: _defaultTextStyle(isOkayBtn),
     );
@@ -77,19 +77,15 @@ class CoolAlertButtons extends StatelessWidget {
       ),
       color: options!.confirmBtnColor ?? Theme.of(context!).primaryColor,
       onPressed: onTap,
-      child: Container(
-        child: Center(
-          child: _btnText,
-        ),
+      child: Center(
+        child: btnText,
       ),
     );
 
     final cancelBtn = GestureDetector(
       onTap: onTap,
-      child: Container(
-        child: Center(
-          child: _btnText,
-        ),
+      child: Center(
+        child: btnText,
       ),
     );
 

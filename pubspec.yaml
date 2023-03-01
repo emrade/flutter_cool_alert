@@ -5,19 +5,19 @@ version: 1.1.0
 homepage: https://github.com/emrade/flutter_cool_alert.git
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.19.2 <3.0.0"
 
 dependencies:
+  flare_flutter: ^3.0.2
   flutter:
     sdk: flutter
-  flare_flutter: ^3.0.0
-  lottie: ^2.0.0
-  vector_math: ^2.0.8
+  lottie: ^2.2.0
+  vector_math: ^2.1.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.11.0
+  flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -12,15 +12,15 @@ class SingleLoopController extends FlareController {
   SingleLoopController(this._animation, this._loopAmount, [this._mix = 0.7]);
 
   @override
-  void initialize(FlutterActorArtboard artBoard) {
-    _actor = artBoard.getAnimation(_animation);
+  void initialize(FlutterActorArtboard artboard) {
+    _actor = artboard.getAnimation(_animation);
   }
 
   @override
-  bool advance(FlutterActorArtboard artBoard, double elapsed) {
+  bool advance(FlutterActorArtboard artboard, double elapsed) {
     if (_loopCount >= _loopAmount) {
       // Looped enough times!
-      _actor!.apply(_actor!.duration, artBoard, 1);
+      _actor!.apply(_actor!.duration, artboard, 1);
       return false;
     }
     _duration += elapsed;
@@ -30,7 +30,7 @@ class SingleLoopController extends FlareController {
       _loopCount++;
       _duration %= _actor!.duration;
     }
-    _actor!.apply(_duration, artBoard, _mix);
+    _actor!.apply(_duration, artboard, _mix);
     return true;
   }
 

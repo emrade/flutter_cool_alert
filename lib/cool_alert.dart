@@ -158,7 +158,7 @@ class CoolAlert {
             return child;
         }
       },
-      transitionDuration: Duration(milliseconds: 200),
+      transitionDuration: const Duration(milliseconds: 200),
       barrierDismissible:
           autoCloseDuration != null ? false : barrierDismissible,
       barrierLabel: '',

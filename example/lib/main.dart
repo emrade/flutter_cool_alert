@@ -2,9 +2,11 @@ import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,19 +15,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: GoogleFonts.poppins().fontFamily,
       ),
-      home: MyHomePage(title: 'Cool Alert'),
+      home: const MyHomePage(title: 'Cool Alert'),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, this.title}) : super(key: key);
-
-  final String? title;
+  final String title;
+  const MyHomePage({super.key, required this.title});
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -37,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
           context: context,
           type: CoolAlertType.success,
           text: 'Transaction completed successfully!',
-          autoCloseDuration: Duration(seconds: 2),
+          autoCloseDuration: const Duration(seconds: 2),
         );
       },
       text: 'Success',
@@ -110,14 +111,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final customAlert = _buildButton(
       onTap: () {
-        var _message = '';
+        var message = '';
         CoolAlert.show(
           context: context,
           type: CoolAlertType.custom,
           barrierDismissible: true,
           confirmBtnText: 'Save',
           widget: TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: 'Enter Phone Number',
               prefixIcon: Icon(
                 Icons.phone_outlined,
@@ -125,10 +126,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.phone,
-            onChanged: (value) => _message = value,
+            onChanged: (value) => message = value,
           ),
           onConfirmBtnTap: () async {
-            if (_message.length < 5) {
+            if (message.length < 5) {
               await CoolAlert.show(
                 context: context,
                 type: CoolAlertType.error,
@@ -137,12 +138,13 @@ class _MyHomePageState extends State<MyHomePage> {
               return;
             }
             Navigator.pop(context);
-            await Future.delayed(Duration(milliseconds: 1000));
-            await CoolAlert.show(
-              context: context,
-              type: CoolAlertType.success,
-              text: "Phone number '$_message' has been saved!.",
-            );
+            await Future.delayed(const Duration(milliseconds: 1000), () async {
+              await CoolAlert.show(
+                context: context,
+                type: CoolAlertType.success,
+                text: "Phone number '$message' has been saved!.",
+              );
+            });
           },
         );
       },
@@ -152,10 +154,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title!),
+        title: Text(widget.title),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -172,7 +174,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buildButton({VoidCallback? onTap, required String text, Color? color}) {
+  Widget _buildButton(
+      {VoidCallback? onTap, required String text, Color? color}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
       child: MaterialButton(
@@ -186,7 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.symmetric(vertical: 15.0),
           child: Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
             ),
           ),

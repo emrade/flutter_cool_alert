@@ -17,35 +17,35 @@ class CoolAlertContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _header = _buildHeader(context);
-    final _title = _buildTitle(context);
-    final _text = _buildText(context);
-    final _buttons = _buildButtons();
-    final _widget = _buildWidget(context);
+    final header = _buildHeader(context);
+    final title = _buildTitle(context);
+    final text = _buildText(context);
+    final buttons = _buildButtons();
+    final widget = _buildWidget(context);
 
-    final _content = Container(
-      padding: EdgeInsets.all(20.0),
+    final content = Container(
+      padding: const EdgeInsets.all(20.0),
       child: Column(
         children: [
-          _title,
-          SizedBox(
+          title,
+          const SizedBox(
             height: 5.0,
           ),
-          _text,
-          _widget!,
-          SizedBox(
+          text,
+          widget!,
+          const SizedBox(
             height: 10.0,
           ),
-          _buttons
+          buttons
         ],
       ),
     );
 
-    return Container(
+    return SizedBox(
       width: options!.width ?? MediaQuery.of(context).size.width,
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [_header, _content],
+        children: [header, content],
       ),
     );
   }
@@ -88,7 +88,7 @@ class CoolAlertContainer extends StatelessWidget {
             topRight: Radius.circular(options!.borderRadius!),
           ),
         ),
-        child: Container(
+        child: SizedBox(
           height: 150,
           width: 150,
           child: options!.lottieAsset == null
@@ -104,7 +104,8 @@ class CoolAlertContainer extends StatelessWidget {
                           1,
                         ),
                 )
-              : Lottie.asset(options!.lottieAsset!,repeat: options!.loopAnimation),
+              : Lottie.asset(options!.lottieAsset!,
+                  repeat: options!.loopAnimation),
         ),
       );
     }
@@ -114,7 +115,7 @@ class CoolAlertContainer extends StatelessWidget {
     if (options!.type == CoolAlertType.loading) {
       return Padding(
         padding: const EdgeInsets.only(bottom: 0.0),
-        child: Container(
+        child: SizedBox(
           height: 100,
           width: 100,
           child: options!.lottieAsset == null
