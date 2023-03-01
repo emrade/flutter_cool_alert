@@ -24,6 +24,7 @@ class CoolAlertOptions {
   double? width;
   bool loopAnimation;
   bool closeOnConfirmBtnTap;
+  Duration? autoCloseDuration;
 
   CoolAlertOptions({
     this.title,
@@ -48,5 +49,6 @@ class CoolAlertOptions {
     this.width,
     this.loopAnimation = false,
     this.closeOnConfirmBtnTap = true,
+    this.autoCloseDuration,
   });
 }

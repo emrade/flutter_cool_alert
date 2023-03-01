@@ -128,6 +128,7 @@ class CoolAlert {
       width: width,
       loopAnimation: loopAnimation,
       closeOnConfirmBtnTap: closeOnConfirmBtnTap,
+      autoCloseDuration: autoCloseDuration,
     );
 
     final child = AlertDialog(
