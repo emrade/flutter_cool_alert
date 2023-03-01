@@ -23,6 +23,7 @@ class CoolAlertOptions {
   String? lottieAsset;
   double? width;
   bool loopAnimation;
+  bool closeOnConfirmBtnTap;
 
   CoolAlertOptions({
     this.title,
@@ -46,5 +47,6 @@ class CoolAlertOptions {
     this.lottieAsset,
     this.width,
     this.loopAnimation = false,
+    this.closeOnConfirmBtnTap = true,
   });
 }

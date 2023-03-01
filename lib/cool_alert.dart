@@ -9,6 +9,7 @@ import 'src/utils/animate.dart';
 import 'src/widgets/cool_alert_container.dart';
 
 enum CoolAlertType { success, error, warning, confirm, info, loading, custom }
+
 enum CoolAlertAnimType {
   scale,
   rotate,
@@ -91,6 +92,12 @@ class CoolAlert {
 
     /// Detemines if the animation loops or not
     bool loopAnimation = false,
+
+    /// Detemines if dialog closes when the confirm button is tapped
+    /// [default] is true
+    /// When it is true, it will close
+    /// When it is false, you will have to close it manually by using Navigator.of(context).pop();
+    bool closeOnConfirmBtnTap = true,
   }) {
     if (autoCloseDuration != null) {
       Future.delayed(autoCloseDuration, () {
@@ -120,6 +127,7 @@ class CoolAlert {
       lottieAsset: lottieAsset,
       width: width,
       loopAnimation: loopAnimation,
+      closeOnConfirmBtnTap: closeOnConfirmBtnTap,
     );
 
     final child = AlertDialog(

@@ -3,11 +3,11 @@ import 'package:cool_alert/src/models/cool_alert_options.dart';
 import 'package:flutter/material.dart';
 
 class CoolAlertButtons extends StatelessWidget {
-  final CoolAlertOptions? options;
+  final CoolAlertOptions options;
 
   const CoolAlertButtons({
     Key? key,
-    this.options,
+    required this.options,
   }) : super(key: key);
 
   @override
@@ -26,13 +26,18 @@ class CoolAlertButtons extends StatelessWidget {
 
   Widget _okayBtn(context) {
     final showCancelBtn =
-        options!.type == CoolAlertType.confirm ? true : options!.showCancelBtn!;
+        options.type == CoolAlertType.confirm ? true : options.showCancelBtn!;
 
     final okayBtn = _buildButton(
       context: context,
       isOkayBtn: true,
-      text: options!.confirmBtnText!,
-      onTap: options!.onConfirmBtnTap ?? () => Navigator.pop(context),
+      text: options.confirmBtnText!,
+      onTap: () {
+        options.onConfirmBtnTap?.call();
+        if (options.closeOnConfirmBtnTap) {
+          Navigator.pop(context);
+        }
+      },
     );
 
     if (showCancelBtn) {
@@ -44,13 +49,16 @@ class CoolAlertButtons extends StatelessWidget {
 
   Widget _cancelBtn(context) {
     final showCancelBtn =
-        options!.type == CoolAlertType.confirm ? true : options!.showCancelBtn!;
+        options.type == CoolAlertType.confirm ? true : options.showCancelBtn!;
 
     final cancelBtn = _buildButton(
       context: context,
       isOkayBtn: false,
-      text: options!.cancelBtnText!,
-      onTap: options!.onCancelBtnTap ?? () => Navigator.pop(context),
+      text: options.cancelBtnText!,
+      onTap: () {
+        options.onCancelBtnTap?.call();
+        Navigator.pop(context);
+      },
     );
 
     if (showCancelBtn) {
@@ -75,7 +83,7 @@ class CoolAlertButtons extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30.0),
       ),
-      color: options!.confirmBtnColor ?? Theme.of(context!).primaryColor,
+      color: options.confirmBtnColor ?? Theme.of(context!).primaryColor,
       onPressed: onTap,
       child: Center(
         child: btnText,
@@ -100,9 +108,9 @@ class CoolAlertButtons extends StatelessWidget {
     );
 
     if (isOkayBtn) {
-      return options!.confirmBtnTextStyle ?? textStyle;
+      return options.confirmBtnTextStyle ?? textStyle;
     } else {
-      return options!.cancelBtnTextStyle ?? textStyle;
+      return options.cancelBtnTextStyle ?? textStyle;
     }
   }
 }

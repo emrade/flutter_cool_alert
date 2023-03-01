@@ -128,17 +128,19 @@ class _MyHomePageState extends State<MyHomePage> {
             keyboardType: TextInputType.phone,
             onChanged: (value) => message = value,
           ),
+          closeOnConfirmBtnTap: false,
           onConfirmBtnTap: () async {
             if (message.length < 5) {
               await CoolAlert.show(
                 context: context,
                 type: CoolAlertType.error,
-                text: 'Please input something',
+                text: 'Please enter at least 5 characters',
               );
+
               return;
             }
-            Navigator.pop(context);
-            await Future.delayed(const Duration(milliseconds: 1000), () async {
+            Navigator.of(context).pop();
+            await Future.delayed(const Duration(milliseconds: 500), () async {
               await CoolAlert.show(
                 context: context,
                 type: CoolAlertType.success,
