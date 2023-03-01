@@ -1,3 +1,10 @@
+## [2.0.0] - 06/03/2023
+
+- Bug fixes
+- Upgrade
+- Added 'closeOnConfirmBtnTap' prop
+- Added 'reverseBtnOrder' prop
+
 ## [1.1.0] - 01/05/2021
 
 - Added Null Saftey Support
