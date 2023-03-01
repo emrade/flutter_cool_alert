@@ -1,3 +1,31 @@
+# cool_alert
+
+A Flutter package to display animated alert dialogs
+
+## Usage
+
+To use this package, add cool_alert as a dependency in your pubspec.yaml file.
+And add this import to your file.
+
+import 'package:cool_alert/cool_alert.dart';
+
+## Image
+![Screenshot  Gif](screenshots/gif.gif)
+
+### Example
+
+```
+CoolAlert.show(
+   context: context,
+   type: CoolAlertType.success,
+   text: "Your transaction was successful!",
+);
+```
+
+
+### CoolAlert Class
+
+
 | Attribute        | Data type           | Description                                                                                                                                                   |            Default Value            |
 |:----------------------|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------:|
 | context| BuildContext | @required                                                                                      |                Null                 |
