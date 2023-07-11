@@ -131,6 +131,7 @@ class CoolAlertContainer extends StatelessWidget {
         visible: title != null,
         child: Text(
           '$title',
+          textAlign: TextAlign.center,
           style: options.titleTextStyle ??
               Theme.of(context).textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
