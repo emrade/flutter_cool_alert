@@ -28,6 +28,7 @@ class CoolAlertOptions {
   bool closeOnConfirmBtnTap;
   Duration? autoCloseDuration;
   bool reverseBtnOrder = false;
+  double buttonCornerRadius = 30.0;
 
   CoolAlertOptions({
     this.title,
