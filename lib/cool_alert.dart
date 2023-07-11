@@ -107,6 +107,9 @@ class CoolAlert {
 
     /// Reverse the order of the buttons
     bool reverseBtnOrder = false,
+
+    /// Action button radius
+    double buttonCornerRadius = 10.0,
   }) {
     if (autoCloseDuration != null) {
       Future.delayed(autoCloseDuration, () {
@@ -115,33 +118,33 @@ class CoolAlert {
     }
 
     final options = CoolAlertOptions(
-      title: title,
-      text: text,
-      widget: widget,
-      type: type,
-      animType: animType,
-      barrierDismissible: barrierDismissible,
-      onConfirmBtnTap: onConfirmBtnTap,
-      onCancelBtnTap: onCancelBtnTap,
-      confirmBtnText: confirmBtnText,
-      cancelBtnText: cancelBtnText,
-      confirmBtnColor: confirmBtnColor,
-      confirmBtnTextStyle: confirmBtnTextStyle,
-      cancelBtnTextStyle: cancelBtnTextStyle,
-      titleTextStyle: titleTextStyle,
-      textTextStyle: textTextStyle,
-      showCancelBtn: showCancelBtn,
-      borderRadius: borderRadius,
-      backgroundColor: backgroundColor,
-      flareAsset: flareAsset,
-      flareAnimationName: flareAnimationName,
-      lottieAsset: lottieAsset,
-      width: width,
-      loopAnimation: loopAnimation,
-      closeOnConfirmBtnTap: closeOnConfirmBtnTap,
-      autoCloseDuration: autoCloseDuration,
-      reverseBtnOrder: reverseBtnOrder,
-    );
+        title: title,
+        text: text,
+        widget: widget,
+        type: type,
+        animType: animType,
+        barrierDismissible: barrierDismissible,
+        onConfirmBtnTap: onConfirmBtnTap,
+        onCancelBtnTap: onCancelBtnTap,
+        confirmBtnText: confirmBtnText,
+        cancelBtnText: cancelBtnText,
+        confirmBtnColor: confirmBtnColor,
+        confirmBtnTextStyle: confirmBtnTextStyle,
+        cancelBtnTextStyle: cancelBtnTextStyle,
+        titleTextStyle: titleTextStyle,
+        textTextStyle: textTextStyle,
+        showCancelBtn: showCancelBtn,
+        borderRadius: borderRadius,
+        backgroundColor: backgroundColor,
+        flareAsset: flareAsset,
+        flareAnimationName: flareAnimationName,
+        lottieAsset: lottieAsset,
+        width: width,
+        loopAnimation: loopAnimation,
+        closeOnConfirmBtnTap: closeOnConfirmBtnTap,
+        autoCloseDuration: autoCloseDuration,
+        reverseBtnOrder: reverseBtnOrder,
+        buttonCornerRadius: buttonCornerRadius);
 
     final child = AlertDialog(
       contentPadding: EdgeInsets.zero,

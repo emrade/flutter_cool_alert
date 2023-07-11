@@ -28,34 +28,34 @@ class CoolAlertOptions {
   bool closeOnConfirmBtnTap;
   Duration? autoCloseDuration;
   bool reverseBtnOrder = false;
-  double buttonCornerRadius = 30.0;
+  double? buttonCornerRadius;
 
-  CoolAlertOptions({
-    this.title,
-    this.text,
-    this.widget,
-    required this.type,
-    this.animType,
-    this.barrierDismissible,
-    this.onConfirmBtnTap,
-    this.onCancelBtnTap,
-    this.confirmBtnText,
-    this.cancelBtnText,
-    this.confirmBtnColor,
-    this.confirmBtnTextStyle,
-    this.cancelBtnTextStyle,
-    this.titleTextStyle,
-    this.textTextStyle,
-    this.showCancelBtn,
-    this.borderRadius,
-    this.backgroundColor,
-    this.flareAsset,
-    this.flareAnimationName,
-    this.lottieAsset,
-    this.width,
-    this.loopAnimation = false,
-    this.closeOnConfirmBtnTap = true,
-    this.autoCloseDuration,
-    this.reverseBtnOrder = false,
-  });
+  CoolAlertOptions(
+      {this.title,
+      this.text,
+      this.widget,
+      required this.type,
+      this.animType,
+      this.barrierDismissible,
+      this.onConfirmBtnTap,
+      this.onCancelBtnTap,
+      this.confirmBtnText,
+      this.cancelBtnText,
+      this.confirmBtnColor,
+      this.confirmBtnTextStyle,
+      this.cancelBtnTextStyle,
+      this.titleTextStyle,
+      this.textTextStyle,
+      this.showCancelBtn,
+      this.borderRadius,
+      this.backgroundColor,
+      this.flareAsset,
+      this.flareAnimationName,
+      this.lottieAsset,
+      this.width,
+      this.loopAnimation = false,
+      this.closeOnConfirmBtnTap = true,
+      this.autoCloseDuration,
+      this.reverseBtnOrder = false,
+      this.buttonCornerRadius = 30});
 }
